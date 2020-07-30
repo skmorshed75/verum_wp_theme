@@ -54,6 +54,7 @@ if ( post_password_required() ) {
 				array(
 					'style'      => 'ol',
 					'short_ping' => true,
+					'avatar_size' => 128
 				)
 			);
 			?>
@@ -71,7 +72,60 @@ if ( post_password_required() ) {
 
 	endif; // Check for have_comments().
 
-	comment_form();
+	$verum_comment_fields = array();
+	$verum_name_field_placeholder = __('Name','verum');
+	$verum_email_field_placeholder = __('Email','verum');
+	$verum_name_website_placeholder = __('Website','verum');
+	$verum_submit_label = __('Send','verum');
+	$verum_comment_fields['author']=<<<EOD
+<div class="row">
+	<div class=" col-md-4">
+		<div class="form-group">
+			<input type="text" id="author" name="author"  class="form-control" placeholder="{$verum_name_field_placeholder}*" required="">
+		</div>
+	</div>
+EOD;
+	$verum_comment_fields['email'] = <<<EOD
+	<div class=" col-md-4">
+		<div class="form-group ">
+			<input type="email" id="email" name="email" class="form-control" placeholder="{$verum_email_field_placeholder}*" required="">
+		</div>
+	</div>
+EOD;
+	$verum_comment_fields['url'] = <<<EOD
+	<div class="form-group">
+		<div class="controls">
+			<input type="text" id="url" name="url" class="form-control" placeholder="{$verum_name_website_placeholder}*" required="">
+		</div>
+	</div>
+</div>	
+EOD;
+	$verum_comment_field = <<<EOD
+<div class="form-group">
+	<div class="controls">
+		<textarea id="comment" name="comment" rows="5" placeholder="Comments*" class="form-control"
+		required=""></textarea>
+	</div>
+</div>
+EOD;
+	$verum_comment_submit_button = <<<EOD
+<div class="text-center mt-md-4">
+	<button type="submit" class="btn btn-black">{$verum_submit_label}</button>
+</div>
+EOD;
+
+
+
+	$verum_comment_form_arguments = array(
+		'fields'=>$verum_comment_fields,
+		'comment_field'=>$verum_comment_field,
+		'submit_button'=>$verum_comment_submit_button,
+		'class_form'=>'comments-form text-left',
+		'comment_notes_before'=>'<p></p>',
+		'comment_notes_after'=>'<p>'.__('Your email address will not be published. Required fields are marked','verum').'*</p>',
+		'title_reply'=>''
+	);
+	comment_form($verum_comment_form_arguments);
 	?>
 
 </div><!-- #comments -->

@@ -56,6 +56,11 @@ if ( ! function_exists( 'verum_setup' ) ) :
 				'menu-1' => esc_html__( 'Primary', 'verum' ),
 			)
 		);
+		register_nav_menus(
+			array(
+				'footer-menu' => esc_html__( 'Footer Menu', 'verum' ),
+			)
+		);
 
 		/*
 		 * Switch default core markup for search form, comment form, and comments
@@ -168,23 +173,23 @@ function verum_widgets_init() {
 			'name'          => esc_html__( 'Footer Left', 'verum' ),
 			'id'            => 'footer-left',
 			'description'   => esc_html__( 'Footer Left Section.', 'verum' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'before_widget' => '<section id="%1$s" class="%2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
 			'after_title'   => '</h2>',
 		)
 	);
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Footer Right', 'verum' ),
-			'id'            => 'footer-right',
-			'description'   => esc_html__( 'Footer Right Section.', 'verum' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
+	// register_sidebar(
+	// 	array(
+	// 		'name'          => esc_html__( 'Footer Right', 'verum' ),
+	// 		'id'            => 'footer-right',
+	// 		'description'   => esc_html__( 'Footer Right Section.', 'verum' ),
+	// 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+	// 		'after_widget'  => '</section>',
+	// 		'before_title'  => '<h2 class="widget-title">',
+	// 		'after_title'   => '</h2>',
+	// 	)
+	// );
 }
 add_action( 'widgets_init', 'verum_widgets_init' );
 
@@ -306,3 +311,12 @@ function verum_user_contactmethods($cm) {
 	return $cm;
 }
 add_filter('user_contactmethods','verum_user_contactmethods');
+
+//Class 4.17
+function verum_comment_form_fields($fields){
+	$comment_field = $fields['comment'];
+	unset($fields['comment']);
+	$fields['comment'] = $comment_field;
+	return $fields;
+}
+add_filter('comment_form_fields','verum_comment_form_fields');
