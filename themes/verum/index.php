@@ -1,10 +1,20 @@
 <?php
     get_header();
+    //Class 4.20
+    $verum_sidebar_position = get_theme_mod('sidebar_display_setting','no');
+    $verum_container_class='no' == $verum_sidebar_position?'col-md-12':'col-lg-9 col-md-8';
+    $verum_sidebar_border = 'left' == $verum_sidebar_position?'side-border':'';
     ?>
     <!--post start-->
     <div class="container">
         <div class="row">
-            <div class="<?php blog_sidebar_check() ;?>">
+            <?php
+            //for left sidebar
+            if('left'==$verum_sidebar_position){
+                get_sidebar();
+            }
+            ?>            
+            <div class="<?php echo esc_attr($verum_container_class); ?><?php echo esc_attr($verum_sidebar_border) ; ?>">
                 <div class="row post-grid">
                 <?php
                 while(have_posts()){
@@ -60,7 +70,13 @@
                 </div>
                 <!--custom pagination-->
             </div>
-            <?php get_sidebar(); ?>
+            <?php
+            //for right sidebar
+            if('right'==$verum_sidebar_position){
+                get_sidebar();
+            }
+            ?>
+
         </div>
     </div>
     <!--post end-->

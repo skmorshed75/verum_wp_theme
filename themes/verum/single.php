@@ -1,24 +1,33 @@
     <?php
     get_header('single'); //header-single - header will automatically fix
     the_post();
+    
+    $verum_sidebar_position = get_theme_mod('sidebar_display_setting','no');
+    $verum_container_class='no' == $verum_sidebar_position?'col-md-12':'col-lg-9 col-md-8';
+    $verum_sidebar_border = 'left' == $verum_sidebar_position?'side-border':'';
     ?>
     <!--post start-->
     <div class="container">
         <div class="row">
-            <div class="<?php blog_sidebar_check(); ?>">
+            <?php
+            //for left sidebar
+            if('left'==$verum_sidebar_position){
+                get_sidebar();
+            }
+            ?>
+            <div class="<?php echo esc_attr($verum_container_class); ?><?php echo esc_attr($verum_sidebar_border) ; ?>">
+                <div class="col-md-12">
+                    <article class="post">
+                        <?php get_template_part('templates/post/single-post/title','meta'); ?>
+                    
+                        <div class="post-blog first-letter-cap">
+                            <p>She has previously sung about her love for New York, and it looks like one North African nation is also inspiring poetry...</p>
+                        </div>
+                    </article>
 
-                <div class="row">
-                    <div class="col-md-12">
-                        <article class="post">
-                            <?php get_template_part('templates/post/single-post/title','meta'); ?>
-                        
-                            <div class="post-blog first-letter-cap">
-                                <p>She has previously sung about her love for New York, and it looks like one North African nation is also inspiring poetry...</p>
-                            </div>
-                        </article>
-                    </div>
+                    
                 </div>
-
+                   
                 <div class="row post-grid">
                             <?php the_content(); ?>
                 </div>
@@ -101,122 +110,27 @@
                                     </div>
                                 </div>
                                 <!--author info end-->
-
-                            </div>
+                         
+                            </div>                            
                         </article>
+                        <?php
+                        //for right sidebar
+                        if('right'==$verum_sidebar_position){
+                            get_sidebar();
+                        }
+                    ?>
                       <?php get_template_part('templates/single-post/related','posts'); ?>                                                 
                       
                        <?php comments_template(); ?>
                     </div>
                 </div>
             </div>
-
-            <div class="col-lg-3 col-md-4">
-                <div class="widget">
-                    <h2 class="widget-title">Categories</h2>
-                    <ul>
-                        <li><a href="#">Art</a> 12</li>
-                        <li><a href="#">Food</a> 8</li>
-                        <li><a href="#">Lifestyle</a> 10</li>
-                        <li><a href="#">Movie</a> 6</li>
-                        <li><a href="#">Music</a> 9</li>
-                        <li><a href="#">Top</a> 13</li>
-                        <li><a href="#">Travel</a> 5</li>
-                    </ul>
-                </div>
-                <div class="widget">
-                    <h2 class="widget-title">About</h2>
-                    <img class="img-fluid mb-3" src="assets/img/ab-1.jpg" alt=""/>
-                    <p class="pb-2"><em>She has previously sung about her love for New York, and it looks</em></p>
-                    <img class="img-fluid" src="assets/img/signature.jpg" alt=""/>
-                </div>
-                <div class="widget">
-                    <h2 class="widget-title">Latest Post</h2>
-                    <div class="media">
-                        <a href="#"><img class="mr-3" src="assets/img/w1.jpg" width="90" alt="Generic placeholder image"></a>
-                        <div class="media-body align-self-center">
-                            <h6 class="mt-0"><a href="#">Thoughtful living in los Angeles</a></h6>
-                            <p class="text-muted">October 10, 2018</p>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <a href="#"><img class="mr-3" src="assets/img/w2.jpg" width="90" alt="Generic placeholder image"></a>
-                        <div class="media-body align-self-center">
-                            <h6 class="mt-0"><a href="#">Plan your next trip with us</a></h6>
-                            <p class="text-muted">October 10, 2018</p>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <a href="#"><img class="mr-3" src="assets/img/w3.jpg" width="90" alt="Generic placeholder image"></a>
-                        <div class="media-body align-self-center">
-                            <h6 class="mt-0"><a href="#">Explore the Beauty of North Amazon</a></h6>
-                            <p class="text-muted">October 10, 2018</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="widget">
-                    <h2 class="widget-title mb-0">Subscribe</h2>
-                    <p class="text-muted">Sign up and receive our newsletters</p>
-
-                    <form action="">
-                        <input type="text" class="form-control mb-3"/>
-                        <button class="btn btn-default btn-block">Subscribe</button>
-                    </form>
-                </div>
-
-                <div class="widget">
-                    <h2 class="widget-title">Follow</h2>
-                    <div class="widget-social">
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-google-plus"></i></a>
-                        <a href="#"><i class="fa fa-linkedin"></i></a>
-                        <a href="#"><i class="fa fa-youtube"></i></a>
-                    </div>
-                </div>
-
-                <div class="widget">
-                    <a href="#"><img class="img-fluid" src="assets/img/ads.jpg" alt=""/></a>
-                </div>
-                
-            </div>
+        
+        
         </div>
+        
     </div>
     <!--post end-->
-
-    <!--flickr photo start-->
-    <div class="flickr-photo-section">
-        <div class="flickr-logo">
-            <img src="assets/img/flickr.jpg" srcset="assets/img/flickr@2x.jpg 2x" alt=""/>
-        </div>
-        <div class="flickr_gallery owl-carousel owl-theme">
-            <div class="item">
-                <a href="#"><img class="img-fluid" src="assets/img/f1.jpg" alt=""/></a>
-            </div>
-            <div class="item">
-                <a href="#"><img class="img-fluid" src="assets/img/f2.jpg" alt=""/></a>
-            </div>
-            <div class="item">
-                <a href="#"><img class="img-fluid" src="assets/img/f3.jpg" alt=""/></a>
-            </div>
-            <div class="item">
-                <a href="#"><img class="img-fluid" src="assets/img/f4.jpg" alt=""/></a>
-            </div>
-            <div class="item">
-                <a href="#"><img class="img-fluid" src="assets/img/f5.jpg" alt=""/></a>
-            </div>
-            <div class="item">
-                <a href="#"><img class="img-fluid" src="assets/img/f6.jpg" alt=""/></a>
-            </div>
-            <div class="item">
-                <a href="#"><img class="img-fluid" src="assets/img/f1.jpg" alt=""/></a>
-            </div>
-            <div class="item">
-                <a href="#"><img class="img-fluid" src="assets/img/f2.jpg" alt=""/></a>
-            </div>
-        </div>
-    </div>
-    <!--flickr photo end-->
 <?php
 get_footer();
 ?>

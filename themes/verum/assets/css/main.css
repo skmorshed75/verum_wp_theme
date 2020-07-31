@@ -1868,7 +1868,10 @@ blog post
     right: 30px;
 }
 
-.post-grid .col-md-6:nth-child(2), .post-grid .col-md-6:nth-child(4), .post-grid .col-md-6:nth-child(7), .post-grid .col-md-6:nth-child(9) {
+.post-grid .col-md-6:nth-child(2), 
+.post-grid .col-md-6:nth-child(4), 
+.post-grid .col-md-6:nth-child(7), 
+.post-grid .col-md-6:nth-child(9) {
     border-right: 1px solid #e8e8e8;
 }
 .side-border

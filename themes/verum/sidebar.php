@@ -11,13 +11,16 @@
 if ( ! is_active_sidebar( 'blog-sidebar' ) ) {
 	return;
 }
+ 
+$verum_sidebar_position = get_theme_mod('sidebar_display_setting','no');
+$verum_sidebar_border = 'left' == $verum_sidebar_position?'side-border':'';
 ?>
 
-<div class="col-lg-3 col-md-4">
+<div class="col-lg-3 col-md-4 <?php echo esc_attr($verum_sidebar_border); ?>">
 	<div class="widget">
 		<h2 class="widget-title">Categories</h2>
 		<ul>
-			<li><a href="#">Art</a> 12</li>
+			<li><a href="#">Art</a> xxx12</li>
 			<li><a href="#">Food</a> 8</li>
 			<li><a href="#">Lifestyle</a> 10</li>
 			<li><a href="#">Movie</a> 6</li>

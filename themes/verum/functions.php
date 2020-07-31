@@ -240,6 +240,7 @@ add_action( 'wp_enqueue_scripts', 'verum_scripts' );
  */
 require get_template_directory() . '/inc/custom-header.php';
 require get_template_directory() . '/customizer/class-kirki-installer-section.php';
+require get_template_directory() . '/customizer/main-config.php';
 
 /**
  * Custom template tags for this theme.
@@ -272,9 +273,9 @@ if ( class_exists( 'WooCommerce' ) ) {
 
 function blog_sidebar_check() {
 	if(is_active_sidebar('blog-sidebar')){
-		echo 'col-lg-9 col-md-8 side-border';
+		echo 'col-lg-9 col-md-8';
 	} else {
-		echo 'col-lg-12 col-md-12';
+		echo 'col-md-12';
 	}
 }
 
