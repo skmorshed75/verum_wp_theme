@@ -1,4 +1,13 @@
     <!--flickr photo start-->
+    <div class="flickr">
+        <?php 
+        // Class 4.21
+        if(is_active_sidebar('footer-top')){
+            dynamic_sidebar('footer-top');
+
+        }; 
+        ?>
+    </div>
     <div class="flickr-photo-section">
         <div class="flickr-logo">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/img/flickr.jpg" srcset="<?php echo get_template_directory_uri(); ?>/assets/img/flickr@2x.jpg 2x" alt=""/>
