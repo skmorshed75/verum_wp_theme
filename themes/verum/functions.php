@@ -322,3 +322,11 @@ function verum_comment_form_fields($fields){
 	return $fields;
 }
 add_filter('comment_form_fields','verum_comment_form_fields');
+
+//Class 4.22
+function verum_wp_list_categories($output) {
+	$output = str_replace("("," ",$output);
+	$output = str_replace(")"," ",$output);
+	return $output;
+}
+add_filter('wp_list_categories','verum_wp_list_categories');

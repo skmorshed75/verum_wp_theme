@@ -45,7 +45,7 @@ class Verumflickrwidget_Widget extends WP_Widget {
                 <div class="flickr_gallery owl-carousel owl-theme">
                 <?php
                 foreach($photos['photos']['photo'] as $photo){
-                    $url = 'https://farm{$photo['farm']}.staticflickr.com/{$photo['server']}/{$photo['id']}_{$photo['secret']}_z.jpg';
+                    //$url = 'https://farm{$photo['farm']}.staticflickr.com/{$photo['server']}/{$photo['id']}_{$photo['secret']}_z.jpg';
                     ?>
                     <div class="item">
                         <a href="#"><img class="img-fluid" src="<?php echo esc_url($url); ?>" alt="<?php echo esc_attr($photo['title']); ?>"/></a>
