@@ -23,16 +23,16 @@ if(class_exists('Kirki')) {
     Kirki::add_field( 'verum_options', [
         'type'        => 'select',
         'settings'    => 'sidebar_display_setting',
-        'label'       => esc_html__( 'This is the label', 'kirki' ),
+        'label'       => esc_html__( 'This is the label', 'verum' ),
         'section'     => 'blog_settings',
         'default'     => 'no',
-        'placeholder' => esc_html__( 'Sidebar Position', 'kirki' ),
+        'placeholder' => esc_html__( 'Sidebar Position', 'verum' ),
         'priority'    => 10,
         'multiple'    => 1,
         'choices'     => [
-            'no' => esc_html__( 'No Sidebar', 'kirki' ),
-            'left' => esc_html__( 'Left Sidebar', 'kirki' ),
-            'right' => esc_html__( 'Right Sidebar', 'kirki' ),
+            'no' => esc_html__( 'No Sidebar', 'verum' ),
+            'left' => esc_html__( 'Left Sidebar', 'verum' ),
+            'right' => esc_html__( 'Right Sidebar', 'verum' ),
         ],
     ] );
 }
