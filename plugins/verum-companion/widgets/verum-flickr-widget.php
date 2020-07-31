@@ -29,9 +29,9 @@ class Verumflickrwidget_Widget extends WP_Widget {
 		echo wp_kses_post($args['before_widget']);
 
 		// Output generated fields
-		echo '<p>'.$instance['verum_flickr_id'].'</p>';
-        echo '<p>'.$instance['verum_number_photos'].'</p>';
-        $flickr_output = wp_remote_get("https://www.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&api_key=b679440c220959b5f454efc343e50caf&user_id={$instance['verum_flickr_id']}&per_page={$instance['verum_number_photos']}&format=json&nojsoncallback=1");
+		// echo '<p>'.$instance['verum_flickr_id'].'</p>';
+        // echo '<p>'.$instance['verum_number_photos'].'</p>';
+        $flickr_output = wp_remote_get("https://www.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&api_key=c92685e5501407b1e18d2913807784ac&user_id={$instance['verum_flickr_id']}&per_page={$instance['verum_number_photos']}&format=json&nojsoncallback=1");
         if(is_array($flickr_output)){
             $photos = json_decode($flickr_output['body'],true);
             //  echo '<pre>';
@@ -45,7 +45,7 @@ class Verumflickrwidget_Widget extends WP_Widget {
                 <div class="flickr_gallery owl-carousel owl-theme">
                 <?php
                 foreach($photos['photos']['photo'] as $photo){
-                    //$url = 'https://farm{$photo['farm']}.staticflickr.com/{$photo['server']}/{$photo['id']}_{$photo['secret']}_z.jpg';
+                    $url = "https://farm{$photo['farm']}.staticflickr.com/{$photo['server']}/{$photo['id']}_{$photo['secret']}_z.jpg";
                     ?>
                     <div class="item">
                         <a href="#"><img class="img-fluid" src="<?php echo esc_url($url); ?>" alt="<?php echo esc_attr($photo['title']); ?>"/></a>
