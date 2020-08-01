@@ -18,8 +18,15 @@
  require_once plugin_dir_path(__FILE__)."/widgets/verum-flickr-widget.php";
  //Class 4.24
  require_once plugin_dir_path(__FILE__)."/widgets/verum-about-widget.php";
+ //Class 4.25
+ require_once plugin_dir_path(__FILE__)."/widgets/verum-recent-posts-widget.php";
 
  function verumc_load_textdomain(){
      load_plugin_textdomain('verum-companion',false,dirname(__FILE__)."/languages");
  }
  add_action('plugins_loaded','verumc_load_textdomain');
+
+ function verum_plugin_init(){
+    add_image_size('verum-sidebar-thumbnail',90,75,true);
+ }
+ add_action('init','verum_plugin_init');
