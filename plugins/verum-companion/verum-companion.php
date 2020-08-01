@@ -20,6 +20,9 @@
  require_once plugin_dir_path(__FILE__)."/widgets/verum-about-widget.php";
  //Class 4.25
  require_once plugin_dir_path(__FILE__)."/widgets/verum-recent-posts-widget.php";
+ //Class 4.26
+ require_once plugin_dir_path(__FILE__)."/widgets/verum-advertisement-widget.php";
+
 
  function verumc_load_textdomain(){
      load_plugin_textdomain('verum-companion',false,dirname(__FILE__)."/languages");
