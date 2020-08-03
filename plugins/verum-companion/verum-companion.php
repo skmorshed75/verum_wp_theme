@@ -22,6 +22,8 @@
  require_once plugin_dir_path(__FILE__)."/widgets/verum-recent-posts-widget.php";
  //Class 4.26
  require_once plugin_dir_path(__FILE__)."/widgets/verum-advertisement-widget.php";
+//Class 4.27
+ require_once plugin_dir_path(__FILE__)."/widgets/verum-mailchimp-widget.php";
 
 
  function verumc_load_textdomain(){
