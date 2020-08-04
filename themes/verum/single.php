@@ -18,6 +18,7 @@
             <div class="<?php echo esc_attr($verum_container_class); ?><?php echo esc_attr($verum_sidebar_border) ; ?>">
                 <div class="col-md-12">
                     <article class="post">
+                        <?php get_template_part("templates/single-post/post","header"); ?>
                         <?php get_template_part('templates/post/single-post/title','meta'); ?>
                     
                         <div class="post-blog first-letter-cap">
