@@ -291,6 +291,10 @@ function verum_piklist_part_process($part) {
 			return $part;
 		}
 	}
+	if($post && 'page' == $post->post_type && 'about-page.php' == $part['part']){
+		return $part;
+	}
+
 	return false;
 }
 add_filter('piklist_part_process','verum_piklist_part_process');
