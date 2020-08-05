@@ -6,9 +6,13 @@ $verum_container_column= ($verum_current_index % 5 == 1) ? 12 : 6;
     <div class="col-md-<?php echo esc_attr($verum_container_column) ; ?>">
         <article <?php post_class(); ?>>
             <?php
-            get_template_part('templates/post/post','header');
-            get_template_part('templates/post/title','meta');
-            get_template_part('templates/post/post','content');
+            if('quote' != get_post_format()) :
+                get_template_part('templates/post/post','header');
+                get_template_part('templates/post/title','meta');
+                get_template_part('templates/post/post','content');
+            else :
+                get_template_part('templates/post/post','quote');
+            endif;
             ?>
         </article>
     </div>

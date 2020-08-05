@@ -22,7 +22,8 @@
                         <?php get_template_part('templates/post/single-post/title','meta'); ?>
                     
                         <div class="post-blog first-letter-cap">
-                            <p>She has previously sung about her love for New York, and it looks like one North African nation is also inspiring poetry...</p>
+                            <?php the_content(); ?>
+                            <?php get_template_part('templates/single-post/post','footer'); ?>
                         </div>
                     </article>
 
@@ -30,7 +31,7 @@
                 </div>
                    
                 <div class="row post-grid">
-                            <?php the_content(); ?>
+                    <?php the_content(); ?>
                 </div>
 
                 <!-- tags and share start-->
