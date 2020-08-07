@@ -294,6 +294,9 @@ function verum_piklist_part_process($part) {
 	if($post && 'page' == $post->post_type && 'about-page.php' == $part['part']){
 		return $part;
 	}
+	if($post && 'page' == $post->post_type && 'contact-page.php' == $part['part']){
+		return $part;
+	}
 
 	return false;
 }
