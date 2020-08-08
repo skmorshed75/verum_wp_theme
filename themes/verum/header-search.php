@@ -186,8 +186,31 @@
 
     <!--nav end-->
 
-   <!--hero img start-->
-   <div class="single-hero-img">
-        <?php the_post_thumbnail('verum_poster'); ?>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="search-heading">
+                    <?php 
+                    if(have_posts()) :
+                    ?>
+                        <h1>
+                            <?php _e("Search Results for :","verum"); ?>
+                            <?php echo get_search_query(); ?>
+                        </h1>
+                    <?php
+                    else :
+                    ?>
+                        <h1>
+                            <?php _e("No Search Results found for :","verum"); ?>
+                            <?php echo get_search_query(); ?>
+                        </h1>
+                    <?php
+                    endif;
+                    ?>
+                </div>
+            </div>
+        </div>
     </div>
-    <!--hero img end-->
+
+
+   
