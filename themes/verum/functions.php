@@ -241,6 +241,7 @@ add_action( 'wp_enqueue_scripts', 'verum_scripts' );
 require get_template_directory() . '/inc/custom-header.php';
 require get_template_directory() . '/customizer/class-kirki-installer-section.php';
 require get_template_directory() . '/customizer/main-config.php';
+require get_template_directory(). '/customizer/banner-config.php';
 
 /**
  * Custom template tags for this theme.
