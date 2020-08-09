@@ -230,7 +230,10 @@ function verum_scripts() {
 	wp_enqueue_script('magnific-popup-js',get_theme_file_uri('assets/vendor/magnific-popup/jquery.magnific-popup.min.js'),null,1.0,true);
 	wp_enqueue_script('justified-gallery-js',get_theme_file_uri('assets/vendor/justifiedGallery/js/jquery.justifiedGallery.min.js'),null,1.0,true);
 
-	wp_enqueue_script('veram-script-js',get_theme_file_uri('assets/js/scripts.js'),null,1.0,true);
+	wp_enqueue_script('veram-script-js',get_theme_file_uri('assets/js/scripts.js'),null,VERSION,true);
+	//class 4.37
+	$template_directory = get_template_directory_uri();
+	wp_localize_script('veram-script-js','verum',array('template_path'=>$template_directory));
 
 }
 add_action( 'wp_enqueue_scripts', 'verum_scripts' );
@@ -248,7 +251,7 @@ require get_template_directory(). '/customizer/banner-config.php';
  */
 require get_template_directory() . '/inc/template-tags.php';
 
-/**
+ /**
  * Functions which enhance the theme by hooking into WordPress.
  */
 require get_template_directory() . '/inc/template-functions.php';

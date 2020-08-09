@@ -83,7 +83,7 @@
             items:1,
             animateOut: 'fadeOut',
             nav:true,
-            navText : ["<img src='assets/img/arrow-left.svg'/>","<img src='assets/img/arrow-right.svg'/>"],
+            navText : ["<img src='"+verum.template_path+"/assets/img/arrow-left.svg'/>","<img src='"+verum.template_path+"/assets/img/arrow-right.svg'/>"],
             loop: true,
             onInitialized  : counter, //When the plugin has initialized.
             onTranslated : counter //When the translation of the stage has finished.
