@@ -129,5 +129,6 @@
     <!--nav end-->
 <?php 
 $verum_banner_style = get_theme_mod('banner_style',1);
-get_template_part('/templates/banner/banner', $verum_banner_style);
+$verum_override_banner_style = isset($_GET['hps']) ? $_GET['hps'] : $verum_banner_style;
+get_template_part('/templates/banner/banner', $verum_override_banner_style);
 ?>
