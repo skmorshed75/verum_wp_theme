@@ -14,7 +14,9 @@ if(get_theme_mod('simpleshop_homepage_display_categories',true)) :
                 </div>
 
                 <div class="col-md-12">
-                    <?php echo do_shortcode("[product_categories column=3]"); ?>
+                    <?php $simpleshop_nc = get_theme_mod('simpleshop_homepage_categories_col'); ?>
+                    <?php echo do_shortcode("[product_categories columns = {$simpleshop_nc}]"); ?>
+                    <?php //echo do_shortcode('[product_categories columns="4"]');?>
                 </div>
             </div>
         </div>

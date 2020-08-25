@@ -55,6 +55,42 @@ if ( class_exists( 'Kirki' ) ) {
             ],
         ],
     ] );
+    //Class 33.10
+    Kirki::add_field( 'SIMPLESHOP_CUSTOMIZER_CONFIG_ID', [
+        'type'            => 'text',
+        'settings'        => 'simpleshop_homepage_categories_col',
+        'label'           => esc_html__( 'Number of Column', 'simpleshop' ),
+        'section'         => 'simpleshop_homepage',
+        'default'         => 3,
+        'priority'        => 10,
+        'active_callback' => [
+            [
+                'setting'  => 'simpleshop_homepage_display_categories',
+                'operator' => '==',
+                'value'    => true,
+            ],
+        ],
+    ] );
+    Kirki::add_field( 'SIMPLESHOP_CUSTOMIZER_CONFIG_ID', [
+        'type'     => 'switch',
+        'settings' => 'simpleshop_homepage_categories_number',
+        'label'    => esc_html__( 'Display Number Beside Category', 'simpleshop' ),
+        'section'  => 'simpleshop_homepage',
+        'default'  => '1',
+        'priority' => 10,
+        'choices'  => [
+            'on'  => esc_html__( 'Display', 'simpleshop' ),
+            'off' => esc_html__( 'Hide', 'simpleshop' ),
+        ],
+        'active_callback' => [
+            [
+                'setting'  => 'simpleshop_homepage_display_categories',
+                'operator' => '==',
+                'value'    => true,
+            ],
+        ],
+    ] );
+
 
     //ADD A SWITCH CONTROL FOR NEW ARRIVAL 33.8
     Kirki::add_field( 'SIMPLESHOP_CUSTOMIZER_CONFIG_ID', [
