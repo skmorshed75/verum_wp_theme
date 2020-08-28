@@ -47,6 +47,8 @@ function simpleshop_setup() {
 
     add_theme_support( 'customize-selective-refresh-widgets' );
 
+    //add_theme_support('woocommerce'); //33.14
+
     add_theme_support(
         'custom-logo',
         array(
@@ -158,7 +160,26 @@ add_action('woocommerce_after_shop_loop_item_title','woocommerce_show_product_lo
 
 add_action('woocommerce_after_shop_loop_item','woocommerce_template_loop_price',10);
 
+
 function simpleshop_after_shop_loop_item_title() {
     echo '<a href="#" class="wish-list"><i class="fa fa-heart-o"></i></a></div>';
 }
 add_action('woocommerce_after_shop_loop_item_title','simpleshop_after_shop_loop_item_title');
+
+//Class 33.15
+//remove_action('woocommerce_before_shop_loop','woocommerce_result_count',20);
+//remove_action('woocommerce_before_shop_loop','woocommerce_catalog_ordering',30);
+
+//Class 33.16
+add_action('woocommerce_before_shop_loop', function() {
+    ?>
+     <div class="section-title">
+        <h2 class="title d-block text-left-sm"><?php the_title(); ?></h2>
+    <?php
+},19);
+
+add_action('woocommerce_before_shop_loop', function(){
+    ?>
+    </div>
+    <?php
+},31);
