@@ -113,3 +113,4 @@ function mark_social_profile_fields( $profiles ) {
     return $profiles;
 }
 add_filter( 'mark_social_profiles', 'mark_social_profile_fields' );
+

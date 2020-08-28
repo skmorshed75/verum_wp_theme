@@ -17,6 +17,8 @@ if(get_theme_mod('simpleshop_homepage_display_product', true)) :
                 </div>
 
                 <div class="col-md-12">
+                    <?php echo do_shortcode('[products columns-3]'); ?>
+                    <!--
                     <ul class="products columns-3">
                         <li class="product">
                             <div class="product-wrap">
@@ -218,23 +220,8 @@ if(get_theme_mod('simpleshop_homepage_display_product', true)) :
                                     </span>
                                 </span>
                         </li>
-                        <!--default woocommerce markup-->
-                        <!--<li class="product">
-                            <a href="#" class="#">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/p12.jpg" alt="">
-                                <h2 class="woocommerce-loop-product__title">Vneck Tshirt</h2>
-
-                                <span class="price">
-                                    <span class="woocommerce-Price-amount amount">
-                                    <span class="woocommerce-Price-currencySymbol">$</span>18.00</span>
-                                </span>
-                            </a>
-                            <a href="#" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="38" data-product_sku=""
-                                   aria-label="Add “Vneck Tshirt” to your cart" rel="nofollow">
-                                Add to cart
-                            </a>
-                        </li>-->
                     </ul>
+-->
                     <a href="#" class="view-all-product mt-md-5">View All Products</a>
                 </div>
 
